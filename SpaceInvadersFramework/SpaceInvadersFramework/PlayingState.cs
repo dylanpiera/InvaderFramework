@@ -10,6 +10,7 @@ namespace SpaceInvadersFramework
         public PlayingState()
         {
             this.Add(new SpriteGameObject("background"));
+            this.Add(new Player());
         }
     }
 }
