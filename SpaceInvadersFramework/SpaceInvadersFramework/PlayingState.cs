@@ -9,13 +9,13 @@ namespace SpaceInvadersFramework
     {
         GameObjectList invaders, bullets;
         Player player;
-        
+        Score score;
         public PlayingState()
         {
             this.invaders = new GameObjectList(0, "invaders");
             this.bullets = new GameObjectList(0, "bullets");
             this.player = new Player();
-            
+            this.score = new Score();
             
 
             for (int i = 0; i < 9; i++)
@@ -26,7 +26,7 @@ namespace SpaceInvadersFramework
             }
 
             this.Add(new SpriteGameObject("background"));
-            
+            this.Add(score);
             this.Add(player);
             this.Add(bullets);
             this.Add(invaders);
@@ -58,6 +58,17 @@ namespace SpaceInvadersFramework
             }
         }
 
-        
+        internal Score Score
+        {
+            get
+            {
+                return score;
+            }
+
+            set
+            {
+                score = value;
+            }
+        }
     }
 }

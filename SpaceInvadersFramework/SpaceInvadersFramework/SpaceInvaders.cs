@@ -16,7 +16,7 @@ namespace SpaceInvadersFramework
     /// </summary>
     public class SpaceInvaders : GameEnvironment
     {
-        public const String playingState = "playingState";
+        public const String playingState = "playingState", titleScreen = "titleScreen";
 
         public SpaceInvaders()
         {
@@ -32,8 +32,9 @@ namespace SpaceInvadersFramework
             this.SetFullScreen(false);
 
             // TODO: add gamestate to GameStateManager here
+            gameStateManager.AddGameState(titleScreen, new TitleScreenState());
             gameStateManager.AddGameState(playingState, new PlayingState());
-            gameStateManager.SwitchTo(playingState);
+            gameStateManager.SwitchTo(titleScreen);
             
         }
     }
