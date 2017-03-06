@@ -26,6 +26,12 @@ namespace SpaceInvadersFramework
             {
                 this.Position -= new Vector2(-5, 0);
             }
+
+            if (inputHelper.KeyPressed(Keys.Space))
+            {
+                PlayingState ps = GameWorld as PlayingState;
+                ps.Bullets.Add(new Bullet(this.Position));
+            }
         }
     }
 }

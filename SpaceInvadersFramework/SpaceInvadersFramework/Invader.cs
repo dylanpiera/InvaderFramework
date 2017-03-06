@@ -18,7 +18,18 @@ namespace SpaceInvadersFramework
         {
             base.Update(gameTime);
 
-            if(this.Position.X >= (SpaceInvaders.Screen.X - Sprite.Width))
+            PlayingState ps = GameWorld as PlayingState;
+            foreach (Bullet bullet in ps.Bullets.Objects)
+            {
+                if(this.CollidesWith(bullet))
+                {
+                    bullet.Visible = false;
+                    this.Visible = false;
+                    ps.Score.ScoreValue += 10;
+                }
+            }
+
+            if (this.Position.X >= (SpaceInvaders.Screen.X - Sprite.Width))
             {
                 this.Velocity = new Vector2(-2,0);
                 this.Position -= new Vector2(0, -32);

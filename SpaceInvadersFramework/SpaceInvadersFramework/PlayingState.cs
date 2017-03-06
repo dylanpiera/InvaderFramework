@@ -7,10 +7,16 @@ namespace SpaceInvadersFramework
 {
     class PlayingState : GameObjectList
     {
-        GameObjectList invaders;
+        GameObjectList invaders, bullets;
+        Player player;
+        
         public PlayingState()
         {
             this.invaders = new GameObjectList(0, "invaders");
+            this.bullets = new GameObjectList(0, "bullets");
+            this.player = new Player();
+            
+            
 
             for (int i = 0; i < 9; i++)
             {
@@ -20,8 +26,38 @@ namespace SpaceInvadersFramework
             }
 
             this.Add(new SpriteGameObject("background"));
-            this.Add(new Player());
+            
+            this.Add(player);
+            this.Add(bullets);
             this.Add(invaders);
         }
+
+        public GameObjectList Bullets
+        {
+            get
+            {
+                return bullets;
+            }
+
+            set
+            {
+                bullets = value;
+            }
+        }
+
+        internal Player Player
+        {
+            get
+            {
+                return player;
+            }
+
+            set
+            {
+                player = value;
+            }
+        }
+
+        
     }
 }
